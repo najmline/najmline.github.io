@@ -1,10 +1,15 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.najmline.app",
-      "sha256_cert_fingerprints": ["A2:7E:8A:43:4A:CF:C4:85:DE:08:02:82:CC:8F:1E:45:E1:C6:C0:E2:D0:C7:AE:42:A0:FB:B9:10:FD:39:0F:B3"]
+      "sha256_cert_fingerprints": [
+        "A2:7E:8A:43:4A:CF:C4:85:DE:08:02:82:CC:8F:1E:45:E1:C6:C0:E2:D0:C7:AE:42:A0:FB:B9:10:FD:39:0F:B3",
+        "A5:EE:04:01:FE:A1:82:09:75:6D:45:DB:86:3C:0B:52:6C:54:BC:B1:62:0E:9C:64:62:5D:91:88:6F:AE:3C:0E"
+      ]
     }
   }
 ]
