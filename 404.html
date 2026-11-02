@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دعوة على نجم</title>
+<style>
+  body{font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;background:#0f1722;color:#f2f6fc;margin:0;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:20px}
+  .card{max-width:420px;width:100%;background:#1c2736;border-radius:20px;padding:28px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+  h1{margin:0 0 8px;font-size:22px}
+  p{color:#b8c4d6;line-height:1.6}
+  .code{font-size:28px;font-weight:900;letter-spacing:3px;direction:ltr;background:#0f1722;border-radius:12px;padding:14px;margin:16px 0;user-select:all}
+  a.btn{display:block;background:#2563d6;color:#fff;text-decoration:none;border-radius:14px;padding:14px;font-weight:800;margin-top:10px}
+  a.btn.alt{background:#2b3544}
+  small{display:block;margin-top:14px;color:#8fa0b8}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>عندك دعوة على نجم 🚗</h1>
+  <p>لو التطبيق متثبّت على موبايلك كان المفروض يفتح لوحده. لو لأ، حمّل التطبيق وادخل الكود ده:</p>
+  <div class="code" id="code">—</div>
+  <a class="btn" id="store" href="#">حمّل تطبيق نجم</a>
+  <a class="btn alt" id="open" href="#">افتح في التطبيق</a>
+  <small>الكود صالح لمرة واحدة ولمدة محدودة. لو وصلتك الدعوة من حد متعرفوش، تجاهلها.</small>
+</div>
+<script>
+  // حدّث الرابطين دول لما التطبيق ينزل على المتجر
+  var STORE_URL = "https://play.google.com/store/apps/details?id=com.najmline.app";
+  var STORE_LIVE = false; // اقلبها true أول ما التطبيق يتنشر على المتجر
+  var m = location.pathname.match(/\/i\/([A-Za-z0-9-]{12,})/);
+  var code = m ? m[1].toUpperCase() : "";
+  document.getElementById("code").textContent = code || "—";
+  var store = document.getElementById("store");
+  if (STORE_URL && STORE_LIVE) { store.href = STORE_URL; } else { store.textContent = "التطبيق لسه في مرحلة التجربة"; store.removeAttribute("href"); store.style.opacity = ".6"; }
+  // intent:// بيفتح التطبيق لو متثبّت على أندرويد، ولو لأ بيروح للمتجر
+  var fallback = encodeURIComponent(STORE_LIVE ? STORE_URL : location.href);
+  document.getElementById("open").href =
+    "intent://" + location.host + location.pathname +
+    "#Intent;scheme=https;package=com.najmline.app;S.browser_fallback_url=" + fallback + ";end";
+</script>
+</body>
+</html>
